@@ -21,20 +21,22 @@ public class SimpliestMobileFactory {
 		caps.setCapability("udid", "AXS0216313001333"); 
 		caps.setCapability("platformName", "Android");
 		caps.setCapability("platformVersion", "7.0");
-		caps.setCapability("appPackage", "com.disney.wdw.android");
-		caps.setCapability("appActivity", "com.disney.wdpro.park.activities.LoaderActivity");
+		caps.setCapability("appPackage", "com.android.vending");
+		caps.setCapability("appActivity", "com.google.android.finsky.activities.MainActivity");
 //		caps.setCapability("appPackage", "com.android.vending");
 //		caps.setCapability("appActivity", "com.google.android.finsky.activities.MainActivity");
-		caps.setCapability("automationName", "UiAutomator2");
-		caps.setCapability("noReset", true);
+//		caps.setCapability("automationName", "UiAutomator2");
+		caps.setCapability("noReset", "true");
 		
-		URL remoteAddress = null;
+		//URL remoteAddress = null;
 		try {
-			remoteAddress = new URL("http://0.0.0.0:4723/wd/hub");
+			//remoteAddress = new URL("http://0.0.0.0:4723/wd/hub");
+			return new AndroidDriver<MobileElement>(new URL("http://0.0.0.0:4723/wd/hub"), caps);
 		} catch (MalformedURLException e) {
 			log.error(e.getMessage());
 		}
-		return new AndroidDriver<MobileElement>(remoteAddress,caps);
+		//return new AndroidDriver<MobileElement>(remoteAddress,caps);
+		return new AndroidDriver<MobileElement>(caps);
 	}
 
 }
